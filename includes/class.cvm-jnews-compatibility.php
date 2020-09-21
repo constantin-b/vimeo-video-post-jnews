@@ -14,8 +14,8 @@ class CVM_Jnews_Actions_Compatibility {
 	 */
 	public function __construct( $theme_name ) {
 		$this->theme_name = $theme_name;
-		add_filter( 'cvm_theme_support', array( $this, 'theme_support' ) );
-		add_filter( 'cvm_post_insert', array( $this, 'add_post_meta' ), 10, 4 );
+		add_filter( 'vimeotheque_pro\theme_support', array( $this, 'theme_support' ) );
+		add_filter( 'vimeotheque\import_success', array( $this, 'add_post_meta' ), 10, 4 );
 	}
 
 	/**
@@ -66,7 +66,7 @@ class CVM_Jnews_Actions_Compatibility {
 			$post_id,
 			'jnews_single_post',
 			[
-				'video' => cvm_video_url( $video['video_id'] )
+				'video' => \Vimeotheque_Pro\Helper::get_video_url( $video['video_id'] )
 			]
 		);
 	}
